@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tracker</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <main>
+        <div>
+            <h1>My Projects</h1>
+            {% if project|length <= 0 %}
+            <p>You are not assigned to any projects</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of tasks</th>
+                        {% comment %} <th>{{ projectlist }}</th> {% endcomment %}
+                    </tr>
+                </thead>
+                {% for project in object_list %}
+                <tb>
+                    <tr>
+                    <td>
+                        <ol>{{ project.name }}</ol>
+                    </td>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+                </tb>
+            </table>
+        </div>
+    </main>
+</body>
+
