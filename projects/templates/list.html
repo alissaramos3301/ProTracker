@@ -19,8 +19,9 @@
                 <tb>
                     <tr>
                     <td>
-                        <ol>{{ project.name }}</ol>
+                        <a href="{% url 'show_project' project.id %}">{{ project.name }}</a>
                     </td>
+                    <td>{{ project.tasks.all|length }}</td>
                     </tr>
                 {%empty%}
                     <p>You are not assigned to any projects</p>
