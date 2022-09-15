@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+USER_MODEL = settings.AUTH_USER_MODEL
 
 
 class Project(models.Model):
