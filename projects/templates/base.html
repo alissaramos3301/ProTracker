@@ -29,6 +29,9 @@
         </li>
         {% else %}
         <li class="nav-item">
+          <a href="{% url 'signup' %}">Sign up</a>
+        </li>
+        <li class="nav-item">
           <a href="{% url 'login' %}">Login</a>
         </li>
         {% endif %}
