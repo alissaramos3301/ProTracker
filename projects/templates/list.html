@@ -14,8 +14,7 @@
     <main>
         <div>
             <h1>My Projects</h1>
-            {% if project|length <= 0 %}
-            <p>You are not assigned to any projects</p>
+            {% comment %} {% if project|length <= 0 %} {% endcomment %}
             <table>
                 <thead>
                     <tr>
@@ -31,8 +30,10 @@
                         <ol>{{ project.name }}</ol>
                     </td>
                     </tr>
+                {%empty%}
+                    <p>You are not assigned to any projects</p>
                 {% endfor %}
-                {% endif %}
+                {% comment %} {% endif %} {% endcomment %}
                 </tb>
             </table>
         </div>
