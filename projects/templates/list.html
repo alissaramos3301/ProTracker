@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <body>
     <main>
         <div>
@@ -11,7 +12,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Number of tasks</th>
-                        {% comment %} <th>{{ projectlist }}</th> {% endcomment %}
+                        <th>{{ projectlist }}</th>
                     </tr>
                 </thead>
                 {% for project in object_list %}
@@ -30,6 +31,5 @@
         </div>
     </main>
 </body>
+
 {% endblock content %}
-
-

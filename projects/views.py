@@ -6,3 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class ProjectListView(LoginRequiredMixin, ListView):
     model = Project
     template_name = "list.html"
+
+    def get_queryset(self):
+        return Project.objects.filter(members=self.request.user)
