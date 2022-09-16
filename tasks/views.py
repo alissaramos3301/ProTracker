@@ -27,4 +27,4 @@ class TaskUpdateView(UpdateView):
     fields = ["is_completed"]
 
     def get_success_url(self):
-        return reverse_lazy("show_my_tasks", args=[self.object.id])
+        return reverse_lazy("show_my_tasks")
