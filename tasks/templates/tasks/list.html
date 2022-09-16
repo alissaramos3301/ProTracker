@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <div>
+        <h1>My Tasks</h1>
+        <p>{{ task.name }}</p>
+        <h2>Tasks</h2>
+        <p><a href="{% url 'create_task' %}">Create a new Task</a></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Is completed</th>
+                    <th>{{ task.name }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in object_list %}
+                    <tr>
+                        <td><ol>{{ task.name }}</ol></td>
+                        <td><ol>{{ task.start_date }}</ol></td>
+                        <td><ol>{{ task.due_date }}</ol></td>
+                    {% if task.is_completed %}
+                        <td>
+                            <ol>{{ task.is_completed }}</ol>
+                            {% comment %} <th>Done</th> {% endcomment %}
+                        </td>
+                    {%endif%}
+                    </tr>
+                {%empty%}
+                    <p>You have no tasks</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+{% endblock content %}
