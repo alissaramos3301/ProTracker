@@ -19,9 +19,8 @@
                     <td>{{ task.name }}</td>
                     <td>{{ task.start_date }}</td>
                     <td>{{ task.due_date }}</td>
-                </tr>
-                {%endfor%}
-                {% if task.is_completed %}
+                
+                <td>{% if task.is_completed %}
                         Done
                 {% else %}
                         <form method="post" action="{% url 'complete_task' task.id %}">
@@ -30,6 +29,9 @@
                             <button>Complete</button>
                         </form>
                 {%endif%}
+                    </td>
+                </tr>
+                {%endfor%}
                 <p>You have no tasks</p>
             </tbody>
         </table>
