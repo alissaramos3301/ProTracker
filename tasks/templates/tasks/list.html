@@ -9,33 +9,27 @@
         <p><a href="{% url 'create_task' %}">Create a new Task</a></p>
         <table>
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>Is completed</th>
-                    <th>{{ task.name }}</th>
-                </tr>
-            </thead>
-            <tbody>
+                <th>Name</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Is completed</th>
                 {% for task in object_list %}
-                    <tr>
-                        <td><ol>{{ task.name }}</ol></td>
-                        <td><ol>{{ task.start_date }}</ol></td>
-                        <td><ol>{{ task.due_date }}</ol></td>
-                    {% if task.is_completed %}
-                    Done
-                    {% else %}
-                        <td>
-                            <form method="post" action="{% url 'complete_task' task.id %}"
-                                {% csrf_token %}
-                                <input type="hidden" name="is_completed" value="True">
-                                <button>Complete</button>
-                              </form>
-                        </td>
-                    {%endif%}
-                    </tr>
-                {% endfor %}
+
+                <tr>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.start_date }}</td>
+                    <td>{{ task.due_date }}</td>
+                </tr>
+                {%endfor%}
+                {% if task.is_completed %}
+                        Done
+                {% else %}
+                        <form method="post" action="{% url 'complete_task' task.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="is_completed" value="True">
+                            <button>Complete</button>
+                        </form>
+                {%endif%}
                 <p>You have no tasks</p>
             </tbody>
         </table>
